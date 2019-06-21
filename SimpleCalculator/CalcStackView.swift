@@ -10,8 +10,9 @@ import UIKit
 
 class CalcView: UIView {
     
+    // MARK:- UI Objects
     let backgroundView: UIView = {
-       let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         backgroundView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         return backgroundView
     }()
@@ -55,9 +56,16 @@ class CalcView: UIView {
         return plusButton
     }()
     
+    let clearButton: UIButton = {
+        let clearButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        clearButton.setTitle("Clear", for: .normal)
+        clearButton.tag = 0
+        return clearButton
+    }()
+    
     let resultButton: UIButton = {
         let resultButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        resultButton.setTitle("calculate", for: .normal)
+        resultButton.setTitle("Calculate", for: .normal)
         resultButton.tag = 5
         return resultButton
     }()
@@ -80,12 +88,14 @@ class CalcView: UIView {
     
     // MARK:- Setting Methods
     func setButtonAttributes() {
+        setButtonAttribute(calcButton: clearButton)
         setButtonAttribute(calcButton: plusButton)
         setButtonAttribute(calcButton: minusButton)
         setButtonAttribute(calcButton: divButton)
         setButtonAttribute(calcButton: mulButton)
         setButtonAttribute(calcButton: resultButton)
     }
+    
     func setButtonAttribute(calcButton: UIButton) {
         calcButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 50)
         calcButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
@@ -95,6 +105,21 @@ class CalcView: UIView {
         calcButton.contentHorizontalAlignment = .center
         calcButton.isUserInteractionEnabled = true
     }
+    
+    func setCalcStackView() {
+        calcStackView = UIStackView(arrangedSubviews: [calcTextField, plusButton, minusButton, divButton, mulButton, clearButton, resultButton])
+        calcStackView.distribution = .fillEqually
+        calcStackView.axis = .vertical
+        calcStackView.spacing = 6
+        calcStackView.isUserInteractionEnabled = true
+    }
+    
+    func setSubviews() {
+        self.backgroundView.addSubview(calcStackView)
+        addSubview(backgroundView)
+    }
+    
+    // MARK: SetConstraint
     func setConstraints() {
         self.calcStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -111,18 +136,5 @@ class CalcView: UIView {
             backgroundView.leftAnchor.constraint(equalTo: safeAreaLayoutGuide.leftAnchor),
             backgroundView.rightAnchor.constraint(equalTo: safeAreaLayoutGuide.rightAnchor)
             ])
-    }
-    
-    func setCalcStackView() {
-        calcStackView = UIStackView(arrangedSubviews: [calcTextField, plusButton, minusButton, divButton, mulButton, resultButton])
-        calcStackView.distribution = .fillEqually
-        calcStackView.axis = .vertical
-        calcStackView.spacing = 6
-        calcStackView.isUserInteractionEnabled = true
-    }
-    
-    func setSubviews() {
-        self.backgroundView.addSubview(calcStackView)
-        addSubview(backgroundView)
     }
 }
