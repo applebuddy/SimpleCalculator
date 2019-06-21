@@ -19,7 +19,7 @@ class CalcView: UIView {
     
     let calcTextField: UITextField = {
         let calcTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        calcTextField.keyboardType = .numberPad
+        calcTextField.keyboardType = UIKeyboardType.decimalPad
         calcTextField.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         calcTextField.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         calcTextField.autocorrectionType = .no
