@@ -9,7 +9,7 @@
 import Foundation
 
 /// MARK:- Calculator Button Tags
-enum CalcButtonTag: Int {
+public enum CalcButtonTag: Int {
     case clear = 0
     case plus = 1
     case minus = 2

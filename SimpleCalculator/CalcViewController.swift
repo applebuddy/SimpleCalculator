@@ -12,17 +12,17 @@ import UIKit
 class CalcViewController: UIViewController {
     
     // MARK:- Properties
-    var resultValue: Double = 0
-    var calcOption: Int = 0
-    var calcValue: Double = 0
+    private var resultValue: Double = 0
+    private var calcOption: Int = 0
+    private var calcValue: Double = 0
     
     // MARK:- UI Objects
-    let calcView: CalcView = {
+    private let calcView: CalcView = {
         let calcView = CalcView()
         return calcView
     }()
     
-    lazy var viewTapGestureRecognizer: UITapGestureRecognizer = {
+    private lazy var viewTapGestureRecognizer: UITapGestureRecognizer = {
         let viewTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(mainViewPressed(_:)))
         return viewTapGestureRecognizer
     }()
@@ -31,21 +31,27 @@ class CalcViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        addButtonTarget()
+        self.view.addGestureRecognizer(viewTapGestureRecognizer)
+        self.calcView.calcTextField.delegate = self
+    }
+    
+    override func loadView() {
+        super.loadView()
+        self.view = calcView
+    }
+    
+    // MARK:- Setting Methods
+    func addButtonTarget() {
+        
         calcView.clearButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         calcView.plusButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         calcView.minusButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         calcView.divButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         calcView.mulButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         calcView.resultButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
-        self.view.addGestureRecognizer(viewTapGestureRecognizer)
-        self.calcView.calcTextField.delegate = self
     }
     
-    override func loadView() {
-        self.view = calcView
-    }
-    
-    // MARK:- Setting Methods
     func showAlertController() {
         let alertController = UIAlertController(title: "0으로 나눌 수 없음", message: "다른 값을 입력해주세요!", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "네.. ㅠ_ㅠ..", style: .default, handler: nil)
@@ -58,8 +64,6 @@ class CalcViewController: UIViewController {
         // 최근 터치한 연산버튼의 바로 이전까지의 연산을 진행한다.
         guard let beforeCalcTag = CalcButtonTag(rawValue: calcOption) else { return }
         switch beforeCalcTag {
-        case .clear:
-            break
         case .plus:
             resultValue += calcValue
         case .minus:
@@ -73,8 +77,8 @@ class CalcViewController: UIViewController {
             resultValue /= calcValue
         case .mul:
             resultValue *= calcValue
-        case .result:
-            break
+        case .clear: break
+        case .result: break
         }
         calcValue = 0
     }
@@ -83,7 +87,7 @@ class CalcViewController: UIViewController {
     ///
     /// - Parameter sender: 터치한 계산버튼에 따른 이벤트 메서드
     @objc func calcButtonPressed(_ sender: UIButton) {
-        
+        self.view.endEditing(true)
         // 값이 비어있을 경우 0으로 치환하여 계산한다.
         if calcView.calcTextField.text == "" { calcView.calcTextField.text = "0" }
         // 터치한 버튼 태그를 확인한다.
@@ -134,3 +138,4 @@ class CalcViewController: UIViewController {
 extension CalcViewController: UITextFieldDelegate {
     
 }
+

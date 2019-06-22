@@ -11,13 +11,12 @@ import UIKit
 class CalcView: UIView {
     
     // MARK:- UI Objects
-    let backgroundView: UIView = {
+    public let backgroundView: UIView = {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        backgroundView.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
         return backgroundView
     }()
     
-    let calcTextField: UITextField = {
+    public let calcTextField: UITextField = {
         let calcTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         calcTextField.keyboardType = UIKeyboardType.decimalPad
         calcTextField.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
@@ -28,49 +27,49 @@ class CalcView: UIView {
         return calcTextField
     }()
     
-    let plusButton: UIButton = {
+    public let plusButton: UIButton = {
         let plusButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         plusButton.setTitle("＋", for: .normal)
         plusButton.tag = 1
         return plusButton
     }()
     
-    let minusButton: UIButton = {
+    public let minusButton: UIButton = {
         let minusButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         minusButton.setTitle("－", for: .normal)
         minusButton.tag = 2
         return minusButton
     }()
     
-    let divButton: UIButton = {
+    public let divButton: UIButton = {
         let divButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         divButton.setTitle("/", for: .normal)
         divButton.tag = 3
         return divButton
     }()
     
-    let mulButton: UIButton = {
+    public let mulButton: UIButton = {
         let plusButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         plusButton.setTitle("X", for: .normal)
         plusButton.tag = 4
         return plusButton
     }()
     
-    let clearButton: UIButton = {
+    public let clearButton: UIButton = {
         let clearButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         clearButton.setTitle("Clear", for: .normal)
         clearButton.tag = 0
         return clearButton
     }()
     
-    let resultButton: UIButton = {
+    public let resultButton: UIButton = {
         let resultButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         resultButton.setTitle("Calculate", for: .normal)
         resultButton.tag = 5
         return resultButton
     }()
     
-    var calcStackView = UIStackView()
+    private var calcStackView = UIStackView()
     
     // MARK:- Initialization
     override init(frame: CGRect) {

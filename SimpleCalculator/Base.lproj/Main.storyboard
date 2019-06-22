@@ -11,28 +11,38 @@
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="fdE-hx-asd">
+        <scene sceneID="47Q-aP-Wyh">
             <objects>
-                <viewController id="ks2-Fj-2X7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="qfj-TG-pT9">
+                <viewController id="oWa-tu-FZb" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VfK-xB-DdF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3M9-d8-ihT">
-                                <rect key="frame" x="68" y="146" width="97" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="Iyh-Pv-fZo"/>
+                        <viewLayoutGuide key="safeArea" id="bYh-Kh-crQ"/>
                     </view>
+                    <navigationItem key="navigationItem" id="98T-JI-mT1"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Law-OC-JIQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5bl-lu-gmm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-693" y="-1096"/>
+            <point key="canvasLocation" x="664.79999999999995" y="-232.53373313343329"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Vkh-bI-g45">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="S0N-xk-srP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8UU-80-2xI">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="oWa-tu-FZb" kind="relationship" relationship="rootViewController" id="WF9-bO-63i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T4d-Ld-yIV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-423" y="-233"/>
         </scene>
     </scenes>
 </document>
