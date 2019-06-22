@@ -8,6 +8,7 @@
 
 import UIKit
 
+// MARK:- Calculating function View
 class CalcView: UIView {
     
     // MARK:- UI Objects

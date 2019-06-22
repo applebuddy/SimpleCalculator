@@ -12,8 +12,9 @@
 		38BD0C9822BCEF3C00EFEA66 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BD0C9622BCEF3C00EFEA66 /* Main.storyboard */; };
 		38BD0C9A22BCEF3D00EFEA66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 38BD0C9922BCEF3D00EFEA66 /* Assets.xcassets */; };
 		38BD0C9D22BCEF3D00EFEA66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 38BD0C9B22BCEF3D00EFEA66 /* LaunchScreen.storyboard */; };
-		38BD0CA522BCF34900EFEA66 /* CalcStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BD0CA422BCF34900EFEA66 /* CalcStackView.swift */; };
+		38BD0CA522BCF34900EFEA66 /* CalcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BD0CA422BCF34900EFEA66 /* CalcView.swift */; };
 		38BD0CA722BCF9F500EFEA66 /* CalcNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BD0CA622BCF9F500EFEA66 /* CalcNavigationController.swift */; };
+		38BD0CA922BD34E400EFEA66 /* CommonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38BD0CA822BD34E400EFEA66 /* CommonData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,8 +25,9 @@
 		38BD0C9922BCEF3D00EFEA66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		38BD0C9C22BCEF3D00EFEA66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		38BD0C9E22BCEF3D00EFEA66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		38BD0CA422BCF34900EFEA66 /* CalcStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcStackView.swift; sourceTree = "<group>"; };
+		38BD0CA422BCF34900EFEA66 /* CalcView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcView.swift; sourceTree = "<group>"; };
 		38BD0CA622BCF9F500EFEA66 /* CalcNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalcNavigationController.swift; sourceTree = "<group>"; };
+		38BD0CA822BD34E400EFEA66 /* CommonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,6 +41,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		38891F8722BE10DE002858C0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				38BD0CA422BCF34900EFEA66 /* CalcView.swift */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		38891F8822BE110F002858C0 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				38BD0CA622BCF9F500EFEA66 /* CalcNavigationController.swift */,
+				38BD0C9422BCEF3C00EFEA66 /* CalcViewController.swift */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		38891F8922BE113D002858C0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				38BD0CA822BD34E400EFEA66 /* CommonData.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
 		38BD0C8622BCEF3C00EFEA66 = {
 			isa = PBXGroup;
 			children = (
@@ -59,9 +86,9 @@
 			isa = PBXGroup;
 			children = (
 				38BD0C9222BCEF3C00EFEA66 /* AppDelegate.swift */,
-				38BD0CA622BCF9F500EFEA66 /* CalcNavigationController.swift */,
-				38BD0C9422BCEF3C00EFEA66 /* CalcViewController.swift */,
-				38BD0CA422BCF34900EFEA66 /* CalcStackView.swift */,
+				38891F8922BE113D002858C0 /* Model */,
+				38891F8722BE10DE002858C0 /* View */,
+				38891F8822BE110F002858C0 /* Controller */,
 				38BD0C9622BCEF3C00EFEA66 /* Main.storyboard */,
 				38BD0C9922BCEF3D00EFEA66 /* Assets.xcassets */,
 				38BD0C9B22BCEF3D00EFEA66 /* LaunchScreen.storyboard */,
@@ -141,7 +168,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				38BD0CA522BCF34900EFEA66 /* CalcStackView.swift in Sources */,
+				38BD0CA922BD34E400EFEA66 /* CommonData.swift in Sources */,
+				38BD0CA522BCF34900EFEA66 /* CalcView.swift in Sources */,
 				38BD0CA722BCF9F500EFEA66 /* CalcNavigationController.swift in Sources */,
 				38BD0C9522BCEF3C00EFEA66 /* CalcViewController.swift in Sources */,
 				38BD0C9322BCEF3C00EFEA66 /* AppDelegate.swift in Sources */,
