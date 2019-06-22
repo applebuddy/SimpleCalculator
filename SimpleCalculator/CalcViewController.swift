@@ -43,13 +43,10 @@ class CalcViewController: UIViewController {
     
     // MARK:- Setting Methods
     func addButtonTarget() {
-        
-        calcView.clearButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
-        calcView.plusButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
-        calcView.minusButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
-        calcView.divButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
-        calcView.mulButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
-        calcView.resultButton.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
+        let buttonArray = [calcView.clearButton, calcView.plusButton, calcView.minusButton, calcView.divButton, calcView.mulButton, calcView.resultButton]
+        for button in buttonArray {
+            button.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
+        }
     }
     
     func showAlertController() {
