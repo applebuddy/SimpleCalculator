@@ -44,7 +44,7 @@ class CalcViewController: UIViewController {
     // MARK:- Setting Methods
     // MARK:- Setting Methods
     func addButtonTarget() {
-        for i in 100...106 {
+        for i in 100..<106 {
             guard let button = view.viewWithTag(i) as? UIButton else { continue }
             button.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         }
