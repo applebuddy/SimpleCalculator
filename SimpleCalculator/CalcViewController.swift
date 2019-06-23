@@ -42,9 +42,10 @@ class CalcViewController: UIViewController {
     }
     
     // MARK:- Setting Methods
+    // MARK:- Setting Methods
     func addButtonTarget() {
-        let buttonArray = [calcView.clearButton, calcView.plusButton, calcView.minusButton, calcView.divButton, calcView.mulButton, calcView.resultButton]
-        for button in buttonArray {
+        for i in 100...106 {
+            guard let button = view.viewWithTag(i) as? UIButton else { continue }
             button.addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         }
     }
@@ -133,6 +134,6 @@ class CalcViewController: UIViewController {
 }
 
 extension CalcViewController: UITextFieldDelegate {
-    
+    //
 }
 

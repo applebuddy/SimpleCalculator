@@ -6,14 +6,55 @@
 //  Copyright © 2019 Min Kyeong Tae. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 /// MARK:- Calculator Button Tags
 public enum CalcButtonTag: Int {
-    case clear = 0
-    case plus = 1
-    case minus = 2
-    case div = 3
-    case mul = 4
-    case result = 5
+    case clear = 100
+    case plus = 101
+    case minus = 102
+    case div = 103
+    case mul = 104
+    case result = 105
 }
+
+public enum Color {
+    static let mainBackground: UIColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+    static let calcBackground: UIColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    static let buttonBackground: UIColor = #colorLiteral(red: 0.501960814, green: 0.501960814, blue: 0.501960814, alpha: 1)
+    static let calcText: UIColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+    static let navigationBarBackground: UIColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+}
+
+extension UIFont {
+    func mainFont(size: CGFloat) -> UIFont {
+        guard let mainFont = UIFont(name: "HelveticaNeue-Thin", size: size) else { return UIFont() }
+        return mainFont
+    }
+}
+
+extension UIButton {
+    func makeDefaultButton(title: String) -> UIButton {
+        let button = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        button.setTitle(title, for: .normal)
+        button.titleLabel?.font = UIFont().mainFont(size: 50)
+        button.setTitleColor(Color.calcText, for: .normal)
+        button.backgroundColor = Color.buttonBackground
+        button.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
+        button.contentVerticalAlignment = .center
+        button.contentHorizontalAlignment = .center
+        button.isUserInteractionEnabled = true
+        return button
+    }
+}
+
+extension UIStackView {
+    func addArrangedSubviews(view: UIView...) {
+        view.forEach() { view in
+            self.addArrangedSubview(view)
+        }
+        
+    }
+}
+
+

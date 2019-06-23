@@ -14,63 +14,62 @@ class CalcView: UIView {
     // MARK:- UI Objects
     public let backgroundView: UIView = {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
+        backgroundView.backgroundColor = Color.mainBackground
         return backgroundView
     }()
     
     public let calcTextField: UITextField = {
         let calcTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         calcTextField.keyboardType = UIKeyboardType.decimalPad
-        calcTextField.textColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
-        calcTextField.backgroundColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+        calcTextField.textColor = Color.calcText
+        calcTextField.backgroundColor = Color.calcBackground
         calcTextField.autocorrectionType = .no
-        calcTextField.font = UIFont(name: "HelveticaNeue-Thin", size: 60)
+        calcTextField.font = UIFont().mainFont(size: 60)
         calcTextField.adjustsFontSizeToFitWidth = true
         return calcTextField
     }()
     
     public let plusButton: UIButton = {
-        let plusButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        plusButton.setTitle("＋", for: .normal)
-        plusButton.tag = 1
+        let plusButton = UIButton().makeDefaultButton(title: "＋")
+        plusButton.tag = 101
         return plusButton
     }()
     
     public let minusButton: UIButton = {
-        let minusButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        minusButton.setTitle("－", for: .normal)
-        minusButton.tag = 2
+        let minusButton = UIButton().makeDefaultButton(title: "－")
+        minusButton.tag = 102
         return minusButton
     }()
     
     public let divButton: UIButton = {
-        let divButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        divButton.setTitle("/", for: .normal)
-        divButton.tag = 3
+        let divButton = UIButton().makeDefaultButton(title: "/")
+        divButton.tag = 103
         return divButton
     }()
     
     public let mulButton: UIButton = {
-        let plusButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        plusButton.setTitle("X", for: .normal)
-        plusButton.tag = 4
+        let plusButton = UIButton().makeDefaultButton(title: "X")
+        plusButton.tag = 104
         return plusButton
     }()
     
     public let clearButton: UIButton = {
-        let clearButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        clearButton.setTitle("Clear", for: .normal)
-        clearButton.tag = 0
+        let clearButton = UIButton().makeDefaultButton(title: "Clear")
+        clearButton.tag = 100
         return clearButton
     }()
     
     public let resultButton: UIButton = {
-        let resultButton = UIButton(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        resultButton.setTitle("Calculate", for: .normal)
-        resultButton.tag = 5
+        let resultButton = UIButton().makeDefaultButton(title: "Calculator")
+        resultButton.tag = 105
         return resultButton
     }()
     
-    private var calcStackView = UIStackView()
+    private var calcStackView: UIStackView = {
+        let calcStackView = UIStackView()
+        calcStackView.isUserInteractionEnabled = true
+        return calcStackView
+    }()
     
     // MARK:- Initialization
     override init(frame: CGRect) {
@@ -78,8 +77,6 @@ class CalcView: UIView {
         setCalcStackView()
         setSubviews()
         setConstraints()
-        setButtonAttributes()
-        backgroundView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
     }
     
     required init?(coder: NSCoder) {
@@ -87,34 +84,16 @@ class CalcView: UIView {
     }
     
     // MARK:- Setting Methods
-    func setButtonAttributes() {
-        setButtonAttribute(calcButton: clearButton)
-        setButtonAttribute(calcButton: plusButton)
-        setButtonAttribute(calcButton: minusButton)
-        setButtonAttribute(calcButton: divButton)
-        setButtonAttribute(calcButton: mulButton)
-        setButtonAttribute(calcButton: resultButton)
-    }
-    
-    func setButtonAttribute(calcButton: UIButton) {
-        calcButton.titleLabel?.font = UIFont(name: "HelveticaNeue-Thin", size: 50)
-        calcButton.setTitleColor(#colorLiteral(red: 1, green: 1, blue: 1, alpha: 1), for: .normal)
-        calcButton.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        calcButton.contentEdgeInsets = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-        calcButton.contentVerticalAlignment = .center
-        calcButton.contentHorizontalAlignment = .center
-        calcButton.isUserInteractionEnabled = true
-    }
     
     func setCalcStackView() {
-        calcStackView = UIStackView(arrangedSubviews: [calcTextField, plusButton, minusButton, divButton, mulButton, clearButton, resultButton])
+        calcStackView = UIStackView(arrangedSubviews: [resultButton, plusButton, minusButton, divButton, mulButton, clearButton, calcTextField])
         calcStackView.distribution = .fillEqually
-        calcStackView.axis = .vertical
         calcStackView.spacing = 6
-        calcStackView.isUserInteractionEnabled = true
+        calcStackView.axis = .vertical
     }
     
     func setSubviews() {
+        self.calcStackView.addArrangedSubviews(view: calcTextField, plusButton, minusButton, divButton, mulButton, clearButton, resultButton)
         self.backgroundView.addSubview(calcStackView)
         addSubview(backgroundView)
     }

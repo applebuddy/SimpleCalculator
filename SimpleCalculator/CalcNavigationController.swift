@@ -14,7 +14,7 @@ class CalcNavigationController: UINavigationController {
     // MARK:- Initialization
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
-        self.navigationBar.barTintColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1)
+        self.navigationBar.barTintColor = Color.navigationBarBackground
         self.navigationBar.topItem?.title = "Simple Calculator"
         self.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.white]
         self.navigationBar.barStyle = .blackTranslucent
