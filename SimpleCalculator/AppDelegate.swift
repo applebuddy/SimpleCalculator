@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let calcViewController = CalcViewController()
         // 첫 화면이 imbeded되는 네비게이션컨트롤러, calcNavigationController(rootViewController -> calcViewController)
         let calcNavigationController = CalcNavigationController(rootViewController: calcViewController)
-        // 첫 화면을 설정한다.
+        // 계산기의 첫 화면을 설정한다.
         window?.rootViewController = calcNavigationController
 
         return true
