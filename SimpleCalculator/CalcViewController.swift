@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - 계산기능을 하는 뷰 컨트롤러
 
-public class CalcViewController: UIViewController {
+class CalcViewController: UIViewController {
     // MARK: - Properties
 
     private var resultValue: Double = 0
@@ -31,7 +31,7 @@ public class CalcViewController: UIViewController {
 
     // MARK: - Initialization
 
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         addButtonTarget()
@@ -39,7 +39,7 @@ public class CalcViewController: UIViewController {
         calcView.calcTextField.delegate = self
     }
 
-    public override func loadView() {
+    override func loadView() {
         super.loadView()
         view = calcView
     }
@@ -48,14 +48,14 @@ public class CalcViewController: UIViewController {
 
     // MARK: - Setting Methods
 
-    func addButtonTarget() {
+    private func addButtonTarget() {
         let buttonArray = [calcView.calcTextField, calcView.plusButton, calcView.minusButton, calcView.divButton, calcView.mulButton, calcView.clearButton, calcView.resultButton]
         for i in 0 ..< buttonArray.count {
             buttonArray[i].addTarget(self, action: #selector(calcButtonPressed(_:)), for: .touchUpInside)
         }
     }
 
-    func showAlertController() {
+    private func showAlertController() {
         let alertController = UIAlertController(title: "0으로 나눌 수 없음", message: "다른 값을 입력해주세요!", preferredStyle: .alert)
         let alertAction = UIAlertAction(title: "네.. ㅠ_ㅠ..", style: .default, handler: nil)
         alertController.addAction(alertAction)
@@ -64,7 +64,7 @@ public class CalcViewController: UIViewController {
 
     // MARK: 계산기 연산 메서드
 
-    func calculateValue() {
+    private func calculateValue() {
         // 최근 터치한 연산버튼의 바로 이전까지의 연산을 진행한다.
         guard let beforeCalcTag = CalcButtonTag(rawValue: calcOption) else { return }
         switch beforeCalcTag {
