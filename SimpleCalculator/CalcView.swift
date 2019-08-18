@@ -10,16 +10,16 @@ import UIKit
 
 // MARK: - Calculating function View
 
-public class CalcView: UIView {
+class CalcView: UIView {
     // MARK: - UI Objects
 
-    public let backgroundView: UIView = {
+    private let backgroundView: UIView = {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         backgroundView.backgroundColor = Color.mainBackground
         return backgroundView
     }()
 
-    public let calcTextField: UITextField = {
+    let calcTextField: UITextField = {
         let calcTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         calcTextField.keyboardType = UIKeyboardType.decimalPad
         calcTextField.textColor = Color.calcText
@@ -30,37 +30,37 @@ public class CalcView: UIView {
         return calcTextField
     }()
 
-    public let plusButton: UIButton = {
+    let plusButton: UIButton = {
         let plusButton = UIButton().makeDefaultButton(title: "＋")
         plusButton.tag = 101
         return plusButton
     }()
 
-    public let minusButton: UIButton = {
+    let minusButton: UIButton = {
         let minusButton = UIButton().makeDefaultButton(title: "－")
         minusButton.tag = 102
         return minusButton
     }()
 
-    public let divButton: UIButton = {
+    let divButton: UIButton = {
         let divButton = UIButton().makeDefaultButton(title: "/")
         divButton.tag = 103
         return divButton
     }()
 
-    public let mulButton: UIButton = {
+    let mulButton: UIButton = {
         let plusButton = UIButton().makeDefaultButton(title: "X")
         plusButton.tag = 104
         return plusButton
     }()
 
-    public let clearButton: UIButton = {
+    let clearButton: UIButton = {
         let clearButton = UIButton().makeDefaultButton(title: "Clear")
         clearButton.tag = 100
         return clearButton
     }()
 
-    public let resultButton: UIButton = {
+    let resultButton: UIButton = {
         let resultButton = UIButton().makeDefaultButton(title: "Calculator")
         resultButton.tag = 105
         return resultButton
@@ -87,14 +87,14 @@ public class CalcView: UIView {
 
     // MARK: - Setting Methods
 
-    func setCalcStackView() {
+    private func setCalcStackView() {
         calcStackView = UIStackView(arrangedSubviews: [resultButton, plusButton, minusButton, divButton, mulButton, clearButton, calcTextField])
         calcStackView.distribution = .fillEqually
         calcStackView.spacing = 6
         calcStackView.axis = .vertical
     }
 
-    func setSubviews() {
+    private func setSubviews() {
         calcStackView.addArrangedSubviews(view: calcTextField, plusButton, minusButton, divButton, mulButton, clearButton, resultButton)
         backgroundView.addSubview(calcStackView)
         addSubview(backgroundView)
@@ -102,7 +102,7 @@ public class CalcView: UIView {
 
     // MARK: SetConstraint
 
-    func setConstraints() {
+    private func setConstraints() {
         calcStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             calcStackView.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 50),

@@ -10,7 +10,7 @@ import UIKit
 
 // MARK: - 계산뷰컨트롤러를 담는 네비게이션컨트롤러
 
-public class CalcNavigationController: UINavigationController {
+class CalcNavigationController: UINavigationController {
     // MARK: - Initialization
 
     override init(rootViewController: UIViewController) {
