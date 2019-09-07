@@ -10,20 +10,20 @@ import UIKit
 
 // MARK: - Calculating function View
 
-class CalcView: UIView {
-    // MARK: - UI Objects
+class CalculatorView: UIView {
+    // MARK: - UI
 
     private let backgroundView: UIView = {
         let backgroundView = UIView(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
-        backgroundView.backgroundColor = Color.mainBackground
+        backgroundView.backgroundColor = MainColor.mainBackground
         return backgroundView
     }()
 
     let calcTextField: UITextField = {
         let calcTextField = UITextField(frame: CGRect(x: 0, y: 0, width: 20, height: 20))
         calcTextField.keyboardType = UIKeyboardType.decimalPad
-        calcTextField.textColor = Color.calcText
-        calcTextField.backgroundColor = Color.calcBackground
+        calcTextField.textColor = MainColor.calcText
+        calcTextField.backgroundColor = MainColor.calcBackground
         calcTextField.autocorrectionType = .no
         calcTextField.font = UIFont().mainFont(size: 60)
         calcTextField.adjustsFontSizeToFitWidth = true
@@ -72,7 +72,7 @@ class CalcView: UIView {
         return calcStackView
     }()
 
-    // MARK: - Initialization
+    // MARK: - Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -85,7 +85,9 @@ class CalcView: UIView {
         super.init(coder: coder)
     }
 
-    // MARK: - Setting Methods
+    // MARK: - Method
+
+    // MARK: Setting
 
     private func setCalcStackView() {
         calcStackView = UIStackView(arrangedSubviews: [resultButton, plusButton, minusButton, divButton, mulButton, clearButton, calcTextField])
@@ -99,8 +101,6 @@ class CalcView: UIView {
         backgroundView.addSubview(calcStackView)
         addSubview(backgroundView)
     }
-
-    // MARK: SetConstraint
 
     private func setConstraints() {
         calcStackView.translatesAutoresizingMaskIntoConstraints = false

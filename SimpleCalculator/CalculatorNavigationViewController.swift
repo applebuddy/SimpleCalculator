@@ -10,12 +10,12 @@ import UIKit
 
 // MARK: - 계산뷰컨트롤러를 담는 네비게이션컨트롤러
 
-class CalcNavigationController: UINavigationController {
-    // MARK: - Initialization
+class CalculatorNavigationViewController: UINavigationController {
+    // MARK: - Init
 
     override init(rootViewController: UIViewController) {
         super.init(rootViewController: rootViewController)
-        navigationBar.barTintColor = Color.navigationBarBackground
+        navigationBar.barTintColor = MainColor.navigationBarBackground
         navigationBar.topItem?.title = "Simple Calculator"
         navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         navigationBar.barStyle = .blackTranslucent

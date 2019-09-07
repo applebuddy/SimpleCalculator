@@ -18,10 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         // 첫 화면이 될 계산화면, calcViewController
-        let calcViewController = CalcViewController()
+        let calcViewController = CalculatorViewController()
 
         // 첫 화면이 imbeded되는 네비게이션컨트롤러, calcNavigationController(rootViewController -> calcViewController)
-        let calcNavigationController = CalcNavigationController(rootViewController: calcViewController)
+        let calcNavigationController = CalculatorNavigationViewController(rootViewController: calcViewController)
+
+        window?.makeKeyAndVisible()
 
         // 계산기의 첫 화면을 설정한다.
         window?.rootViewController = calcNavigationController
